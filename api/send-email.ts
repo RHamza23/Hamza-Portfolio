@@ -12,12 +12,12 @@ export default async function handler(req: any, res: any) {
 
     // 1. Email to YOU (with user's info)
     await resend.emails.send({
-      from: 'Portfolio Contact <hello@yourdomain.com>', 
-      to: 'Hamza.officaill23@gmail.com',
-      replyTo: reply_to,
-      subject: `New Message from ${from_name}`,
-      text: `Name: ${from_name}\nEmail: ${reply_to}\nMessage: ${message}`,
-    });
+  from: 'onboarding@resend.dev', 
+  to: 'Hamza.officaill23@gmail.com', // Must be your Resend account email
+  replyTo: reply_to,
+  subject: `New Message from ${from_name}`,
+  text: `Name: ${from_name}\nEmail: ${reply_to}\nMessage: ${message}`,
+});
 
     // 2. Auto-reply Email to USER
     await resend.emails.send({
