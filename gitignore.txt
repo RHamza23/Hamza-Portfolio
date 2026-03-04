@@ -1,24 +1,33 @@
-# Logs
-logs
-*.log
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build Output
+dist/
+build/
+out/
+
+# Environment Variables
+# Crucial: Keeps your API keys out of your repository
+.env
+.env.local
+.env.*.local
+
+# Debugging & Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
+.eslintcache
+.cache
 
-node_modules
-dist
-dist-ssr
-*.local
+# IDE Configuration
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# OS files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
