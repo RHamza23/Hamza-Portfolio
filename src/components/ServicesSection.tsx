@@ -47,16 +47,17 @@ const ServicesSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
-            <div
+            <a
+              href="#contact"
               key={service.title}
-              className={`glass-panel-hover rounded-xl p-8 group animate-on-scroll stagger-${(i % 5) + 1}`}
+              className={`glass-panel-hover rounded-xl p-8 group animate-on-scroll stagger-${(i % 5) + 1} cursor-pointer`}
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary/20">
                 <service.icon className="text-primary" size={24} />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-3">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>
