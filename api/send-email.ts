@@ -1,10 +1,6 @@
 import { Resend } from 'resend';
 
-// Initialize the client OUTSIDE the handler or INSIDE? 
-// Let's do it INSIDE to be 100% sure it grabs the Vercel env at runtime.
-
 export default async function handler(req: any, res: any) {
-  // Move this here
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   if (req.method !== 'POST') {
@@ -14,19 +10,27 @@ export default async function handler(req: any, res: any) {
   try {
     const { name, email, message } = req.body;
 
-    const data = await resend.emails.send({
+    // ONLY send this one email. 
+    // Do NOT attempt to send an email to the user (the 'email' variable).
+    const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'Hamza.officaill23@gmail.com',
+      to: 'Hamza.officaill23@gmail.com', // This MUST be your Resend login email
       subject: `Portfolio: Message from ${name}`,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
     });
 
-    console.log("Resend Success:", data);
+    if (error) {
+      console.error("Resend API Error:", error);
+      return res.status(403).json({ error });
+    }
+
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Resend Error Detail:", error);
+    console.error("Server Error:", error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
