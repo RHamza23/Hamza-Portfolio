@@ -7,28 +7,28 @@ const projects = [
     description: 'A real-time analytics platform for SaaS businesses, featuring interactive charts, user segmentation, and revenue tracking with a focus on actionable insights.',
     tags: ['React', 'TypeScript', 'Recharts', 'Tailwind CSS'],
     live: '#',
-    github: '#',
+    github: 'https://github.com/RHamza23',
   },
   {
     title: 'E-Commerce Storefront',
     description: 'High-conversion headless commerce frontend with dynamic filtering, cart management, and seamless checkout flow optimized for mobile-first experiences.',
     tags: ['Next.js', 'Stripe', 'REST API', 'Framer Motion'],
     live: '#',
-    github: '#',
+    github: 'https://github.com/RHamza23',
   },
   {
     title: 'Project Management Tool',
     description: 'Collaborative workspace application with real-time updates, drag-and-drop task boards, team management, and productivity analytics.',
     tags: ['React', 'TypeScript', 'WebSocket', 'Tailwind CSS'],
     live: '#',
-    github: '#',
+    github: 'https://github.com/RHamza23',
   },
   {
     title: 'Content Creator Platform',
     description: 'A video-first content platform with scheduling, analytics, and audience engagement tools — built for creators who take growth seriously.',
     tags: ['React', 'Node.js', 'FFmpeg', 'SaaS'],
     live: '#',
-    github: '#',
+    github: 'https://github.com/RHamza23',
   },
 ];
 
