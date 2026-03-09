@@ -1,7 +1,10 @@
 import { Resend } from 'resend';
 
-// Initialize inside the handler to ensure it picks up the latest env var
+// Initialize the client OUTSIDE the handler or INSIDE? 
+// Let's do it INSIDE to be 100% sure it grabs the Vercel env at runtime.
+
 export default async function handler(req: any, res: any) {
+  // Move this here
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   if (req.method !== 'POST') {
