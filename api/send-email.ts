@@ -10,12 +10,11 @@ export default async function handler(req: any, res: any) {
   try {
     const { name, email, message } = req.body;
 
-    // ONLY send this one email. 
-    // Do NOT attempt to send an email to the user (the 'email' variable).
+    // We can ONLY send to your verified account email in sandbox mode
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'Hamza.officaill23@gmail.com', // This MUST be your Resend login email
-      subject: `Portfolio: Message from ${name}`,
+      to: 'hamza.officaill23@gmail.com', // Your verified Resend email
+      subject: `New Portfolio Message from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
